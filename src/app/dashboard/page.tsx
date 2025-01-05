@@ -1,50 +1,86 @@
 'use client';
 import dynamic from 'next/dynamic';
 import React, { useEffect, useState } from 'react';
+const UserOverview = dynamic(() => import('./components/UserOverview'));
+const LoanManagement = dynamic(() => import('./components/LoanManagement'));
+const TransactionHistory = dynamic(() => import('./components/TransactionHistory'));
 
-interface UserData {
+interface User {
   name: string;
   accountBalance: number;
   recentTransactions: { id: string; amount: number; date: string; type: string }[];
 }
 
+interface Loan {
+  id: string;
+  amount: number;
+  tenure: string;
+  purpose: string;
+  status: string; // active or paid
+}
 
-const UserOverview = dynamic(() => import('./components/UserOverview'));
-const LoanManagement = dynamic(() => import('./components/LoanManagement'));
-const TransactionHistory = dynamic(() => import('./components/TransactionHistory'));
+interface Transaction {
+  id: string;
+  date: string;
+  amount: number;
+  type: 'credit' | 'debit';
+}
 
-// Mock data for testing
-const mockUserData = {
-  name: 'Ikehi Michael',
-  accountBalance: 5000.75,
-  recentTransactions: [
-    { id: '1', amount: 200.5, date: '2025-01-01', type: 'credit' },
-    { id: '2', amount: 150.0, date: '2024-12-28', type: 'debit' },
-    { id: '3', amount: 50.75, date: '2024-12-20', type: 'credit' },
-  ],
-};
-
-export default function DashboardPage() {
-  const [user, setUser] = useState<UserData | null>(null);
+const DashboardPage: React.FC = () => {
+  const [userData, setUserData] = useState<User | null>(null);
+  const [loansData, setLoansData] = useState<Loan[]>([]);
+  const [transactionsData, setTransactionsData] = useState<Transaction[]>([]);
 
   useEffect(() => {
-    // Simulating an API call with setTimeout
-    setTimeout(() => {
-      setUser(mockUserData);
-    }, 1000);
+    // Fetch User Data
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`);
+        const data = await response.json();
+        setUserData(data);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    // Fetch Loans Data
+    const fetchLoansData = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/loans`);
+        const data = await response.json();
+        setLoansData(data);
+      } catch (error) {
+        console.error('Error fetching loans data:', error);
+      }
+    };
+
+    // Fetch Transactions Data
+    const fetchTransactionsData = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/transactions`);
+        const data = await response.json();
+        setTransactionsData(data);
+      } catch (error) {
+        console.error('Error fetching transactions data:', error);
+      }
+    };
+
+    // Call all fetch functions on component mount
+    fetchUserData();
+    fetchLoansData();
+    fetchTransactionsData();
   }, []);
 
+  if (!userData || !loansData || !transactionsData) {
+    return <p>Loading...</p>; // Show loading message while data is being fetched
+  }
+
   return (
-    <div>
+    <div className="max-w-7xl mx-auto p-6">
+
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-4">User Overview</h2>
-        {user ? (
-          <UserOverview user={user} />
-        ) : (
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <p className="text-black">Loading user data...</p>
-          </div>
-        )}
+        <UserOverview />
       </section>
 
       <section className="mb-8">
@@ -57,6 +93,7 @@ export default function DashboardPage() {
         <TransactionHistory />
       </section>
     </div>
-
   );
-}
+};
+
+export default DashboardPage;

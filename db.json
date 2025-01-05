@@ -1,0 +1,21 @@
+{
+  "user": {
+    "name": "Ikehi Michael",
+    "accountBalance": 5000.75,
+    "recentTransactions": [
+    { "id": "1", "amount": 200.5, "date": "2025-01-01", "type": "credit" },
+    { "id": "2", "amount": 150.0, "date": "2024-12-28", "type": "debit" },
+    { "id": "3", "amount": 50.75, "date": "2024-12-20", "type": "credit" }
+  ]
+  },
+  "loans": [
+    { "id": "1", "amount": 5000, "tenure": "12 months", "purpose": "Business", "status": "active" },
+    { "id": "2", "amount": 3000, "tenure": "6 months", "purpose": "Education", "status": "paid" }
+  ],
+  "transactions": [
+    { "id": "1", "date": "2025-01-01", "amount": 200.5, "type": "credit" },
+    { "id": "2", "date": "2024-12-28", "amount": 150.0, "type": "debit" },
+    { "id": "3", "date": "2024-12-20", "amount": 50.75, "type": "credit" },
+    { "id": "4", "date": "2024-12-18", "amount": 300.0, "type": "debit" }
+  ]
+}

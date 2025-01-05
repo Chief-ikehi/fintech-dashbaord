@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 
 interface Transaction {
   id: string;
@@ -7,15 +8,25 @@ interface Transaction {
   type: 'credit' | 'debit';
 }
 
-const mockTransactions: Transaction[] = [
-  { id: '1', date: '2025-01-01', amount: 200.5, type: 'credit' },
-  { id: '2', date: '2024-12-28', amount: 150.0, type: 'debit' },
-  { id: '3', date: '2024-12-20', amount: 50.75, type: 'credit' },
-  { id: '4', date: '2024-12-18', amount: 300.0, type: 'debit' },
-];
-
 const TransactionHistory: React.FC = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>(mockTransactions);
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [allTransactions, setAllTransactions] = useState<Transaction[]>([]); // Store original transactions
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const response = await fetch('/api/transactions');
+        const data = await response.json();
+        setTransactions(data);
+        setAllTransactions(data); // Set the original transactions
+      } catch (error) {
+        console.error('Error fetching transactions:', error);
+      }
+    };
+
+    fetchTransactions();
+  }, []);
+
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc' | null>(null);
   const [filter, setFilter] = useState<'credit' | 'debit' | null>(null);
@@ -45,10 +56,10 @@ const TransactionHistory: React.FC = () => {
   const handleFilter = (type: 'credit' | 'debit') => {
     if (type === filter) {
       setFilter(null); // Remove filter
-      setTransactions(mockTransactions);
+      setTransactions(allTransactions); // Reset to original unfiltered transactions
     } else {
       setFilter(type);
-      setTransactions(mockTransactions.filter((t) => t.type === type));
+      setTransactions(allTransactions.filter((t) => t.type === type)); // Apply the filter
     }
   };
 

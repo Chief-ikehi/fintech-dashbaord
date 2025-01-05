@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 
 interface UserData {
   name: string;
@@ -6,7 +7,24 @@ interface UserData {
   recentTransactions: { id: string; amount: number; date: string; type: string }[];
 }
 
-const UserOverview: React.FC<{ user: UserData }> = ({ user }) => {
+const UserOverview: React.FC = () => {
+  const [user, setUser] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch('/api/users');
+        const data = await response.json();
+        setUser(data);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  if (!user) return <p>Loading...</p>;
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">
       {/* User Info */}

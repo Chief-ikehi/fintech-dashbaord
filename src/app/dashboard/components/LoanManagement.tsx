@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 
 interface Loan {
   id: string;
@@ -8,13 +9,28 @@ interface Loan {
   status: string; // active or paid
 }
 
-const mockLoanData: Loan[] = [
+/*const mockLoanData: Loan[] = [
   { id: '1', amount: 5000, tenure: '12 months', purpose: 'Business', status: 'active' },
   { id: '2', amount: 3000, tenure: '6 months', purpose: 'Education', status: 'paid' },
-];
+];*/
 
 const LoanManagement: React.FC = () => {
-  const [loans, setLoans] = useState<Loan[]>(mockLoanData);
+  const [loans, setLoans] = useState<Loan[]>([]);
+
+  useEffect(() => {
+    const fetchLoans = async () => {
+      try {
+        const response = await fetch('/api/loans');
+        const data = await response.json();
+        setLoans(data);
+      } catch (error) {
+        console.error('Error fetching loans:', error);
+      }
+    };
+
+    fetchLoans();
+  }, []);
+
   const [form, setForm] = useState({ amount: '', tenure: '', purpose: '' });
   const [error, setError] = useState('');
 
