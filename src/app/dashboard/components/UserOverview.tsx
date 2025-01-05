@@ -1,0 +1,40 @@
+import React from 'react';
+
+interface UserData {
+  name: string;
+  accountBalance: number;
+  recentTransactions: { id: string; amount: number; date: string; type: string }[];
+}
+
+const UserOverview: React.FC<{ user: UserData }> = ({ user }) => {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      {/* User Info */}
+      <div className="mb-6 p-6 bg-blue-500 text-white rounded-lg shadow-lg">
+        <h3 className="text-2xl font-bold">Welcome, {user.name}</h3>
+        <p className="text-lg mt-2">
+          Account Balance: <span className="font-bold text-2xl">${user.accountBalance.toFixed(2)}</span>
+        </p>
+      </div>
+
+      {/* Recent Transactions */}
+      <div>
+        <h4 className="text-xl font-semibold mb-4 text-black">Recent Transactions</h4>
+        <ul className="space-y-4">
+          {user.recentTransactions.map((transaction) => (
+            <li
+              key={transaction.id}
+              className={`flex justify-between text-sm p-3 rounded-lg
+                ${transaction.type === 'credit' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}
+            >
+              <span>{transaction.date}</span>
+              <span>{transaction.type === 'credit' ? '+' : '-'}${transaction.amount.toFixed(2)}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default UserOverview;

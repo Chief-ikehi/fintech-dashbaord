@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionHistory Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-white p-6 rounded shadow-lg"
+  >
+    <h3
+      class="mb-6 p-6 bg-blue-500 text-white rounded-lg shadow-lg"
+    >
+      Recent Transaction History
+    </h3>
+    <div
+      class="mb-4 flex space-x-2"
+    >
+      <button
+        class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 text-black"
+      >
+        Credit
+      </button>
+      <button
+        class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 text-black"
+      >
+        Debit
+      </button>
+    </div>
+    <table
+      class="w-full table-auto border-collapse shadow-inner"
+    >
+      <thead
+        class="bg-gray-100"
+      >
+        <tr>
+          <th
+            class="cursor-pointer px-6 py-3 text-left text-sm font-medium text-gray-600 hover:text-gray-800"
+          >
+            Date 
+          </th>
+          <th
+            class="cursor-pointer px-6 py-3 text-left text-sm font-medium text-gray-600 hover:text-gray-800"
+          >
+            Amount 
+          </th>
+          <th
+            class="cursor-pointer px-6 py-3 text-left text-sm font-medium text-gray-600 hover:text-gray-800"
+          >
+            Type 
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="border-t"
+        >
+          <td
+            class="px-6 py-3 text-sm text-black"
+          >
+            2025-01-01
+          </td>
+          <td
+            class="px-6 py-3 text-sm text-black"
+          >
+            $200.50
+          </td>
+          <td
+            class="px-6 py-3 text-sm text-green-600"
+          >
+            credit
+          </td>
+        </tr>
+        <tr
+          class="border-t"
+        >
+          <td
+            class="px-6 py-3 text-sm text-black"
+          >
+            2024-12-28
+          </td>
+          <td
+            class="px-6 py-3 text-sm text-black"
+          >
+            $150.00
+          </td>
+          <td
+            class="px-6 py-3 text-sm text-red-600"
+          >
+            debit
+          </td>
+        </tr>
+        <tr
+          class="border-t"
+        >
+          <td
+            class="px-6 py-3 text-sm text-black"
+          >
+            2024-12-20
+          </td>
+          <td
+            class="px-6 py-3 text-sm text-black"
+          >
+            $50.75
+          </td>
+          <td
+            class="px-6 py-3 text-sm text-green-600"
+          >
+            credit
+          </td>
+        </tr>
+        <tr
+          class="border-t"
+        >
+          <td
+            class="px-6 py-3 text-sm text-black"
+          >
+            2024-12-18
+          </td>
+          <td
+            class="px-6 py-3 text-sm text-black"
+          >
+            $300.00
+          </td>
+          <td
+            class="px-6 py-3 text-sm text-red-600"
+          >
+            debit
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
