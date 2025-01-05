@@ -35,7 +35,7 @@ const DashboardPage: React.FC = () => {
     // Fetch User Data
     const fetchUserData = async () => {
       try {
-        const response = await fetch('/api/user');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`);
         const data = await response.json();
         setUserData(data);
       } catch (error) {
@@ -46,7 +46,7 @@ const DashboardPage: React.FC = () => {
     // Fetch Loans Data
     const fetchLoansData = async () => {
       try {
-        const response = await fetch('/api/loans');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/loans`);
         const data = await response.json();
         setLoansData(data);
       } catch (error) {
@@ -57,7 +57,7 @@ const DashboardPage: React.FC = () => {
     // Fetch Transactions Data
     const fetchTransactionsData = async () => {
       try {
-        const response = await fetch('/api/transactions');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/transactions`);
         const data = await response.json();
         setTransactionsData(data);
       } catch (error) {
