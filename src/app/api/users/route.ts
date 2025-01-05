@@ -35,3 +35,4 @@ const userData = {
 // Named export for the GET method
 export async function GET(req: NextRequest) {
   return NextResponse.json(userData);
+  }
