@@ -541,7 +541,7 @@ export default function DashboardPage() {
       </div>
       <div className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
         <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-          <a
+          <Link
             href="#"
             className="flex flex-wrap no-underline hover:no-underline"
           >
@@ -554,7 +554,7 @@ export default function DashboardPage() {
             <p className="text-gray-800 text-base px-6 mb-5">
               View detailed transaction histories, categorize expenses, and stay on top of your cash flow with ease.
             </p>
-          </a>
+          </Link>
         </div>
         <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
           <div className="flex items-center justify-start">
@@ -566,7 +566,7 @@ export default function DashboardPage() {
       </div>
       <div className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
         <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-          <a
+          <Link
             href="#"
             className="flex flex-wrap no-underline hover:no-underline"
           >
@@ -579,7 +579,7 @@ export default function DashboardPage() {
             <p className="text-gray-800 text-base px-6 mb-5">
               Visualize key metrics with dynamic charts and reports that help you make data-driven decisions.
             </p>
-          </a>
+          </Link>
         </div>
         <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
           <div className="flex items-center justify-center">
@@ -591,7 +591,7 @@ export default function DashboardPage() {
       </div>
       <div className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
         <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-          <a
+          <Link
             href="#"
             className="flex flex-wrap no-underline hover:no-underline"
           >
@@ -604,7 +604,7 @@ export default function DashboardPage() {
             <p className="text-gray-800 text-base px-6 mb-5">
               Keep your accounts organized and secure with advanced access controls and encryption.
             </p>
-          </a>
+          </Link>
         </div>
         <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
           <div className="flex items-center justify-end">
@@ -742,7 +742,7 @@ export default function DashboardPage() {
       Smart tools for seamless financial control.
     </h3>
     <button className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-      <a href="dashboard">Get Started Now!</a>
+      <Link href="/dashboard">Get Started Now!</Link>
     </button>
   </section>
   {/*Footer*/}
@@ -750,7 +750,7 @@ export default function DashboardPage() {
     <div className="container mx-auto px-8">
       <div className="w-full flex flex-col md:flex-row py-6">
         <div className="flex-1 mb-6 text-black">
-          <a
+          <Link
             className="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
             href="/"
           >
@@ -774,34 +774,34 @@ export default function DashboardPage() {
               />
             </svg>
             Ikehi Pay
-          </a>
+          </Link>
         </div>
         <div className="flex-1">
           <p className="uppercase text-gray-500 md:mb-6">Links</p>
           <ul className="list-reset mb-6">
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 FAQ
-              </a>
+              </Link>
             </li>
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Help
-              </a>
+              </Link>
             </li>
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Support
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -809,20 +809,20 @@ export default function DashboardPage() {
           <p className="uppercase text-gray-500 md:mb-6">Legal</p>
           <ul className="list-reset mb-6">
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Terms
-              </a>
+              </Link>
             </li>
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Privacy
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -830,28 +830,28 @@ export default function DashboardPage() {
           <p className="uppercase text-gray-500 md:mb-6">Social</p>
           <ul className="list-reset mb-6">
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Facebook
-              </a>
+              </Link>
             </li>
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Linkedin
-              </a>
+              </Link>
             </li>
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Twitter
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -859,28 +859,28 @@ export default function DashboardPage() {
           <p className="uppercase text-gray-500 md:mb-6">Company</p>
           <ul className="list-reset mb-6">
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Official Blog
-              </a>
+              </Link>
             </li>
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
+              <Link
                 href="#"
                 className="no-underline hover:underline text-gray-800 hover:text-pink-500"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

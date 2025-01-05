@@ -1,6 +1,14 @@
 'use client';
 import dynamic from 'next/dynamic';
 import React, { useEffect, useState } from 'react';
+
+interface UserData {
+  name: string;
+  accountBalance: number;
+  recentTransactions: { id: string; amount: number; date: string; type: string }[];
+}
+
+
 const UserOverview = dynamic(() => import('./components/UserOverview'));
 const LoanManagement = dynamic(() => import('./components/LoanManagement'));
 const TransactionHistory = dynamic(() => import('./components/TransactionHistory'));
@@ -17,7 +25,7 @@ const mockUserData = {
 };
 
 export default function DashboardPage() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<UserData | null>(null);
 
   useEffect(() => {
     // Simulating an API call with setTimeout
