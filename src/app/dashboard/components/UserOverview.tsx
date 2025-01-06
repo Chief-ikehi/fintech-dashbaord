@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 interface UserData {
   name: string;
-  accountBalance: number;
+  amount: number;
   recentTransactions: { id: string; amount: number; date: string; type: string }[];
 }
 
@@ -32,7 +32,7 @@ const UserOverview: React.FC = () => {
       <div className="mb-6 p-6 bg-blue-500 text-white rounded-lg shadow-lg">
         <h3 className="text-2xl font-bold">Welcome, {user.name}</h3>
         <p className="text-lg mt-2">
-          Account Balance: <span className="font-bold text-2xl">${user.accountBalance ? user.accountBalance.toFixed(2) : '0.00'}</span>
+          Account Balance: <span className="font-bold text-2xl">${user.amount ? user.amount.toFixed(2) : '0.00'}</span>
         </p>
       </div>
 
