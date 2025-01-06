@@ -13,7 +13,7 @@ const UserOverview: React.FC = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('https://fintech-dashbaord.vercel.app/dashboard/api/users');
+        const response = await fetch('https://fintech-dashbaord.vercel.app/api/users');
         const data = await response.json();
         setUser(data);
       } catch (error) {

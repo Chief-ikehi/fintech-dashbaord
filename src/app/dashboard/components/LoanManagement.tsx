@@ -20,7 +20,7 @@ const LoanManagement: React.FC = () => {
   useEffect(() => {
     const fetchLoans = async () => {
       try {
-        const response = await fetch('https://fintech-dashbaord.vercel.app/dashboard/api/loans');
+        const response = await fetch('https://fintech-dashbaord.vercel.app/api/loans');
         const data = await response.json();
         setLoans(data);
       } catch (error) {
