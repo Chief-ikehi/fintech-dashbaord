@@ -102,3 +102,33 @@ Using mock APIs ensures the frontend can be developed and tested independently f
 * Adding authentication and user-specific data.
 * Enhancing the UI with more advanced features such as charts, graphs, or dashboards.
 * Improving error handling and adding more sophisticated loading states
+* Extending unit testing to cover more components and edge cases.
+
+# Unit Testing
+To ensure the reliability and correctness of the application, unit testing has been implemented using Jest and React Testing Library.  
+
+## Test Coverage Report
+After running the test suite with the command:
+``` bash
+npm run test -- --coverage
+```
+The following is the Test Coverage Report for the project:  
+
+ 
+```bash
+PASS  src/app/dashboard/components/UserOverview.test.tsx  
+PASS  src/app/dashboard/components/TransactionHistory.test.tsx
+
+------------------------|---------|----------|---------|---------|----------------------------  
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
+------------------------|---------|----------|---------|---------|----------------------------  
+All files               |   72.72 |    58.06 |   76.92 |      75 |                              
+ TransactionHistory.tsx |      70 |    51.85 |   72.72 |   72.22 | 28-29,34-36,47-48,68-80,92   
+ UserOverview.tsx       |     100 |      100 |     100 |     100 |                              
+------------------------|---------|----------|---------|---------|----------------------------
+
+Test Suites: 2 passed, 2 total  
+Tests:       5 passed, 5 total  
+Snapshots:   1 passed, 1 total 
+``` 
+To view the full report, go to /Coverage/lcov-report/index.html
