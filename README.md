@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fintech Dashboard
+A modern, interactive Fintech Dashboard built with Next.js, TypeScript, and Tailwind CSS. The dashboard fetches user data, displays account balances, and shows recent transactions.
 
-## Getting Started
+## Setup Instructions
+To get this project up and running locally, follow the steps below:
+### 1. Clone the Repository
+   ```bash
+   git clone https://github.com/Chief-ikehi/fintech-dashbaord.git
+   cd fintech-dashboard
+   ```
+### 2. Install Dependencies  
+Make sure you have Node.js installed. Then run the following command to install the project dependencies:
+  ```bash
+  npm install
+```
+### 3. Set Up Environment Variables (if necessary)  
+If your app requires any environment variables (e.g., for an API or database), create a .env.local file at the project's root and add your variables there. For now, no environment variables are required.
 
-First, run the development server:
-
+### 4. Run the Development Server  
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+This will start the development server at http://localhost:3000  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Approach
+## Technologies Used:
+### 1. Next.js: 
+A React framework for building server-side rendered applications.  
+### 2. TypeScript: 
+Used for type safety and better developer experience.  
+### 3. Tailwind CSS: 
+A utility-first CSS framework for styling the components.  
+### 4. API Routes: 
+Used to mock the user data, loans and transaction history with a simple API endpoint (/api/users, /api/loans, api/transactions).   
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building the Dashboard:
+### Project Setup:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* I created a new Next.js app using create-next-app with TypeScript support.
+* Tailwind CSS was integrated into the project to enable utility-first CSS styling. Tailwind helps create responsive and clean UI without needing to write custom CSS.
 
-## Learn More
+### User Data Fetching:
 
-To learn more about Next.js, take a look at the following resources:
+* The application fetches user data from a mock API endpoint (/api/users).
+* The mock API returns an array of users with details like name, account balance, and recent transactions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Loan Data Fetching:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* The application fetches loan data from a mock API endpoint (/api/loans).
+* The mock API returns an array of loans with details like loan amount, tenure, and purpose.
 
-## Deploy on Vercel
+### Transaction Data Fetching:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* The application fetches transaction data from a mock API endpoint (/api/transactions).
+* The mock API returns an array of transactions with details like date, amount, and type.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Rendering the Dashboard:
+
+* The dashboard consists of five (5) main sections:
+  1. User Info: Displays the user's name and account balance.
+  2. Recent Transactions: Lists the user’s most recent transactions (e.g., credits and debits) along with their corresponding dates and amounts.
+  3. Loan History: Allow users to view their loan history and details of the currently active loan.
+  4. Request New Loan: Include a form to request a new loan, validating the input fields (e.g., amount, tenure, and purpose). 
+  5. Transaction History: Render a table showing recent transactions, with the ability to: Sort by date, amount, or transaction type and Filter by transaction type (e.g., credit, debit). 
+
+* The data is rendered dynamically using React's useState and useEffect hooks. Data fetching is done with the fetch API.
+
+## Error Handling & Fallbacks:
+
+* Proper error handling was added to catch and log any errors during the API fetch.
+* Conditional rendering was implemented to display loading states and ensure the page doesn't break if any of the data is missing or incorrectly structured.
+
+## User Interface:
+
+* Tailwind CSS was used to style the landing page and dashboard components. I utilized Tailwind's utility classes to handle layout, colors, typography, and responsiveness.
+* The user interface is designed to be simple, clean, and easy to navigate.
+
+## Mock API (Backend):
+
+* Simple mock APIs were created using Next.js API routes in the users/route.ts file, loans/route.ts file, and transactions/route.ts file. These files mimics a backend that returns static user data.
+* The mock data includes basic user info such as name, account balance, recent transactions (credit/debit), loan amount, tenure, purpose, and date
+
+## Deployment:
+
+* The project can be deployed easily to Vercel (or any other platform supporting Next.js) by pushing the repository to GitHub and linking it with the Vercel dashboard (that's what i did )
+
+  
+# Why This Approach?
+
+### 1. Scalability: 
+Using Next.js and API routes gives the flexibility to scale the application easily, whether it involves adding more features or connecting it to a real database.
+### 2. Performance: 
+By using server-side rendering and static generation, the app can be made highly performant, even with large amounts of user data.
+### 3. Developer Experience: 
+TypeScript ensures type safety, reducing bugs during development. Tailwind CSS makes it easy to create a responsive and visually consistent UI.
+### 4. Mock API: 
+Using mock APIs ensures the frontend can be developed and tested independently from a real backend. This also simplifies deployment.
+
+
+# Future Improvements
+* Integrating with a real backend for dynamic user data.
+* Adding authentication and user-specific data.
+* Enhancing the UI with more advanced features such as charts, graphs, or dashboards.
+* Improving error handling and adding more sophisticated loading states
