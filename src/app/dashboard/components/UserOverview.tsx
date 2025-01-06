@@ -25,13 +25,14 @@ const UserOverview: React.FC = () => {
   }, []);
 
   if (!user) return <p>Loading...</p>;
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">
       {/* User Info */}
       <div className="mb-6 p-6 bg-blue-500 text-white rounded-lg shadow-lg">
         <h3 className="text-2xl font-bold">Welcome, {user.name}</h3>
         <p className="text-lg mt-2">
-          Account Balance: <span className="font-bold text-2xl">${user.accountBalance.toFixed(2)}</span>
+          Account Balance: <span className="font-bold text-2xl">${user.accountBalance ? user.accountBalance.toFixed(2) : '0.00'}</span>
         </p>
       </div>
 
@@ -46,7 +47,7 @@ const UserOverview: React.FC = () => {
                 ${transaction.type === 'credit' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}
             >
               <span>{transaction.date}</span>
-              <span>{transaction.type === 'credit' ? '+' : '-'}${transaction.amount.toFixed(2)}</span>
+              <span>{transaction.type === 'credit' ? '+' : '-'}${transaction.amount && !isNaN(transaction.amount) ? transaction.amount.toFixed(2) : '0.00'}</span>
             </li>
           ))}
         </ul>
