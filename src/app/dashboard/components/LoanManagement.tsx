@@ -20,7 +20,7 @@ const LoanManagement: React.FC = () => {
   useEffect(() => {
     const fetchLoans = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/loans`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/loans`);
         const data = await response.json();
         setLoans(data);
       } catch (error) {
