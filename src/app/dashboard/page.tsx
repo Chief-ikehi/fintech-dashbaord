@@ -35,7 +35,7 @@ const DashboardPage: React.FC = () => {
     // Fetch User Data
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`);
         const data = await response.json();
         setUserData(data);
       } catch (error) {
